@@ -40,7 +40,7 @@ const FloatingContact = () => {
 
                             {/* Contact Details */}
                             <div className="flex flex-wrap gap-4 mb-8">
-                                <a href="mailto:your.email@example.com" className="flex items-center gap-2 bg-[#131025] px-4 py-2 rounded-xl text-gray-300 hover:text-white border border-gray-700 hover:border-purple-500 transition-all">
+                                <a href="mailto:darjisahil46.@gmail.com" className="flex items-center gap-2 bg-[#131025] px-4 py-2 rounded-xl text-gray-300 hover:text-white border border-gray-700 hover:border-purple-500 transition-all">
                                     <FiMail className="text-purple-500" />
                                     <span>Email</span>
                                 </a>

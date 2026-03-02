@@ -52,7 +52,7 @@ const Experience = () => {
             key={experience.id}
             className={`flex flex-col sm:flex-row items-center mb-16 w-full ${index % 2 === 0 ? "sm:flex-row-reverse" : ""}`}
           >
-            <div className="absolute sm:left-1/2 left-0 transform -translate-x-1/2 bg-[#0d0b21] border-4 border-[#8245ec] w-12 h-12 rounded-full flex justify-center items-center z-20 shadow-[0_0_15px_rgba(130,69,236,0.3)]">
+            <div className="absolute sm:left-1/2 left-0 transform -translate-x-1/2 bg-[#0d0b21] border-4 border-[#8245ec] w-16 h-16 rounded-full flex justify-center items-center z-20 shadow-[0_0_20px_rgba(130,69,236,0.4)]">
               <img
                 src={experience.img}
                 alt={experience.company}
