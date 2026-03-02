@@ -10,6 +10,17 @@ const Contact = ({ isModal = false }) => {
   const sendEmail = (e) => {
     e.preventDefault();
 
+    // Send to Database
+    const formData = new FormData(form.current);
+    const data = Object.fromEntries(formData.entries());
+
+    fetch("http://localhost/portfolio/backend/api.php?action=send_message", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    }).catch(err => console.error("Database save error:", err));
+
+    // Send via EmailJS
     emailjs
       .sendForm(
         "service_eloq0p8",

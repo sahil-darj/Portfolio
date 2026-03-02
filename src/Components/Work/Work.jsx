@@ -1,10 +1,42 @@
-import React, { useState } from "react";
-import { projects } from "../../constants";
+import React, { useState, useEffect } from "react";
+import { projects as staticProjects } from "../../constants";
 import { FiX } from "react-icons/fi";
 
 const Work = () => {
+  const [projectList, setProjectList] = useState([]);
   const [selectedProject, setSelectedProject] = useState(null);
-  const [visibleCount, setVisibleCount] = useState(6); // Show 6 initially
+  const [visibleCount, setVisibleCount] = useState(6);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchProjects = async () => {
+      try {
+        const response = await fetch("http://localhost/portfolio/backend/api.php?action=projects");
+        const data = await response.json();
+
+        if (data && data.length > 0) {
+          const transformed = data.map(p => ({
+            id: p.id,
+            title: p.title,
+            description: p.description,
+            image: p.image_path.startsWith('http') ? p.image_path : `http://localhost/portfolio/${p.image_path}`,
+            tags: typeof p.tags === 'string' ? p.tags.split(',') : (p.tags || []),
+            github: p.github_url,
+            webapp: p.live_url
+          }));
+          setProjectList(transformed);
+        } else {
+          setProjectList(staticProjects);
+        }
+      } catch (error) {
+        console.error("Error fetching projects:", error);
+        setProjectList(staticProjects);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchProjects();
+  }, []);
 
   const handleOpenModal = (project) => {
     setSelectedProject(project);
@@ -15,11 +47,10 @@ const Work = () => {
   };
 
   const handleToggleView = () => {
-    // Toggle between showing 6 and all
     if (visibleCount === 6) {
-      setVisibleCount(projects.length); // Show all
+      setVisibleCount(projectList.length);
     } else {
-      setVisibleCount(6); // Collapse back
+      setVisibleCount(6);
     }
   };
 
@@ -30,8 +61,8 @@ const Work = () => {
     >
       {/* Section Title */}
       <div className="text-center mb-16">
-        <h2 className="text-4xl font-bold text-white">PROJECTS</h2>
-        <div className="w-32 h-1 bg-purple-500 mx-auto mt-4"></div>
+        <h2 className="text-4xl font-bold text-white uppercase tracking-widest">PROJECTS</h2>
+        <div className="w-32 h-1 bg-[#8245ec] mx-auto mt-4"></div>
         <p className="text-gray-400 mt-4 text-lg font-semibold">
           A showcase of the projects I have worked on, highlighting my skills
           and experience in various technologies
@@ -40,24 +71,25 @@ const Work = () => {
 
       {/* Projects Grid */}
       <div className="grid gap-12 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-        {projects.slice(0, visibleCount).map((project) => (
+        {projectList.slice(0, visibleCount).map((project) => (
           <div
             key={project.id}
             onClick={() => handleOpenModal(project)}
-            className="border border-white bg-gray-900 backdrop-blur-md rounded-2xl shadow-2xl overflow-hidden cursor-pointer hover:shadow-purple-500/50 hover:-translate-y-2 transition-transform duration-300"
+            className="border border-white/10 bg-[#110e2c]/60 backdrop-blur-md rounded-2xl shadow-xl overflow-hidden cursor-pointer hover:shadow-[#8245ec]/20 hover:-translate-y-2 transition-all duration-300"
           >
-            <div className="w-full">
+            <div className="w-full aspect-video overflow-hidden">
               <img
                 src={project.image}
                 alt={project.title}
-                className="w-full aspect-video object-cover"
+                className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                onError={(e) => { e.target.src = 'https://via.placeholder.com/600x400'; }}
               />
             </div>
             <div className="p-6">
               <h3 className="text-2xl font-bold text-white mb-2">
                 {project.title}
               </h3>
-              <p className="text-gray-500 mb-2 pt-2 text-sm line-clamp-2">
+              <p className="text-gray-400 mb-2 pt-2 text-sm line-clamp-2 leading-relaxed">
                 {project.description}
               </p>
             </div>
@@ -66,11 +98,11 @@ const Work = () => {
       </div>
 
       {/* Toggle Button */}
-      {projects.length > 6 && (
-        <div className="flex justify-center mt-8">
+      {projectList.length > 6 && (
+        <div className="flex justify-center mt-12">
           <button
             onClick={handleToggleView}
-            className="bg-purple-500 text-white px-6 py-3 rounded-xl font-semibold hover:bg-purple-600 transition"
+            className="bg-[#8245ec] text-white px-8 py-3 rounded-xl font-bold hover:bg-[#a855f7] hover:shadow-[0_0_20px_rgba(130,69,236,0.5)] transition-all active:scale-95"
           >
             {visibleCount === 6 ? "View More" : "View Less"}
           </button>
@@ -79,57 +111,64 @@ const Work = () => {
 
       {/* Modal */}
       {selectedProject && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-90 p-4">
-          <div className="bg-gray-900 rounded-xl shadow-2xl lg:w-full w-[90%] max-w-3xl overflow-hidden relative">
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 p-4 backdrop-blur-sm">
+          <div className="bg-[#110e2c] border border-white/10 rounded-[2.5rem] shadow-2xl lg:w-full w-full max-w-4xl overflow-hidden relative animate-fade-in">
             <button
               onClick={handleCloseModal}
-              className="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors z-[60]"
+              className="absolute top-6 right-6 text-gray-400 hover:text-white transition-colors z-[110]"
             >
               <FiX size={32} />
             </button>
 
-            <div className="flex flex-col">
-              <div className="w-full flex justify-center bg-gray-900 px-4">
+            <div className="flex flex-col lg:flex-row">
+              <div className="lg:w-1/2 bg-[#0d0b21] p-4 flex items-center justify-center">
                 <img
                   src={selectedProject.image}
                   alt={selectedProject.title}
-                  className="lg:w-full w-[95%] object-contain rounded-xl shadow-2xl"
+                  className="w-full h-auto max-h-[500px] object-contain rounded-2xl shadow-2xl"
                 />
               </div>
-              <div className="lg:p-8 p-6">
-                <h3 className="lg:text-3xl font-bold text-white mb-4 text-md">
+              <div className="lg:w-1/2 p-8 lg:p-12 overflow-y-auto max-h-[60vh] lg:max-h-none">
+                <h3 className="text-3xl font-black text-white mb-6 tracking-tighter">
                   {selectedProject.title}
                 </h3>
-                <p className="text-gray-400 mb-6 lg:text-base text-xs">
+                <p className="text-gray-400 mb-8 text-base leading-relaxed">
                   {selectedProject.description}
                 </p>
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {selectedProject.tags.map((tag, index) => (
+
+                <h4 className="text-sm font-bold text-gray-500 uppercase tracking-widest mb-3">Technologies</h4>
+                <div className="flex flex-wrap gap-2 mb-10">
+                  {selectedProject.tags && Array.isArray(selectedProject.tags) && selectedProject.tags.map((tag, index) => (
                     <span
                       key={index}
-                      className="bg-[#251f38] text-xs font-semibold text-purple-500 rounded-full px-2 py-1"
+                      className="bg-[#8245ec]/10 text-[#8245ec] text-[10px] font-bold px-3 py-1 rounded-full border border-[#8245ec]/20"
                     >
                       {tag}
                     </span>
                   ))}
                 </div>
+
                 <div className="flex gap-4">
-                  <a
-                    href={selectedProject.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-1/2 bg-gray-800 hover:bg-purple-800 text-gray-400 lg:px-6 lg:py-2 px-2 py-1 rounded-xl lg:text-xl text-sm font-semibold text-center"
-                  >
-                    View Code
-                  </a>
-                  <a
-                    href={selectedProject.webapp}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-1/2 bg-purple-600 hover:bg-purple-800 text-white lg:px-6 lg:py-2 px-2 py-1 rounded-xl lg:text-xl text-sm font-semibold text-center"
-                  >
-                    View Live
-                  </a>
+                  {selectedProject.github && (
+                    <a
+                      href={selectedProject.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 bg-[#1c1a3b] border border-white/5 hover:bg-white/5 text-white py-4 rounded-2xl font-bold text-center transition-all"
+                    >
+                      Github
+                    </a>
+                  )}
+                  {selectedProject.webapp && (
+                    <a
+                      href={selectedProject.webapp}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 bg-[#8245ec] hover:bg-[#a855f7] text-white py-4 rounded-2xl font-bold text-center transition-all hover:shadow-[0_0_20px_rgba(130,69,236,0.3)]"
+                    >
+                      Live Demo
+                    </a>
+                  )}
                 </div>
               </div>
             </div>
