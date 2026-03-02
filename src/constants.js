@@ -209,6 +209,24 @@ export const projects = [
   },
   {
     id: 2,
+    title: "Felix N Sagar",
+    description: "A professional service-based website developed for Felix N Sagar, a passport and visa consultancy firm. The platform provides detailed information about passport assistance, visa processing, and documentation support with a clean and user-friendly interface to simplify the application journey for clients.",
+    image: fns,
+    tags: ["React JS", "HTML", "CSS", "JavaScript", "Responsive Design", "Service Website", "UI/UX Optimization", "Form Validation", "Production Deployment"],
+    github: "",
+    webapp: "https://passprt-visa.vercel.app/",
+  },
+  {
+    id: 3,
+    title: "Palak Selection",
+    description: "A modern fashion business website developed for Palak Selection, a ladies saree and ethnic wear brand. The platform showcases product collections with elegant UI design, mobile responsiveness, and a visually appealing layout to enhance customer engagement and brand presence.",
+    image: ps,
+    tags: ["HTML", "CSS", "JavaScript", "E-commerce UI", "Responsive Design", "Fashion Website", "UI/UX Optimization", "Production Deployment"],
+    github: "",
+    webapp: "https://palakselection.com/",
+  },
+  {
+    id: 4,
     title: "Arrow Laser Machine",
     description: "An industrial product showcase platform built using React.js for Arrow Laser Machine.",
     image: alm,
@@ -217,7 +235,7 @@ export const projects = [
     webapp: "https://arrowlasermachine.com/",
   },
   {
-    id: 3,
+    id: 5,
     title: "Natraj Steel",
     description: "A professional corporate website developed for Natraj Steel to highlight products, services, and client solutions.",
     image: ns,
@@ -226,7 +244,7 @@ export const projects = [
     webapp: "https://natrajsteel.com/",
   },
   {
-    id: 4,
+    id: 6,
     title: "PropertyPursuit",
     description: "A React + Node.js application that allows users to explore, filter, and compare properties.",
     image: PP,
@@ -235,7 +253,7 @@ export const projects = [
     webapp: "",
   },
   {
-    id: 5,
+    id: 7,
     title: "RentEasy",
     description: "A full-stack web app that simplifies property rentals by connecting tenants and landlords.",
     image: RE,
@@ -244,7 +262,7 @@ export const projects = [
     webapp: "",
   },
   {
-    id: 6,
+    id: 8,
     title: "Vibrant India Expo",
     description: "A production-ready, responsive web platform developed for Vibrant India Expo to showcase exhibitors and industrial machinery.",
     image: VIE,
@@ -253,7 +271,7 @@ export const projects = [
     webapp: "https://vibrant-india-expo.vercel.app/",
   },
   {
-    id: 7,
+    id: 9,
     title: "Dinesh Industries",
     description: "A professional industrial business website built for Dinesh Industries.",
     image: Di,
@@ -262,7 +280,7 @@ export const projects = [
     webapp: "https://dinesh-industries-website.vercel.app/",
   },
   {
-    id: 8,
+    id: 10,
     title: "Industrial Machinery Website",
     description: "A mobile-first industrial machinery showcase website.",
     image: Machine,
@@ -271,7 +289,7 @@ export const projects = [
     webapp: "https://machinerywebsite.vercel.app/",
   },
   {
-    id: 9,
+    id: 11,
     title: "CampusConnect",
     description: "CampusConnect is a full-stack MERN application designed to centralize and streamline event discovery.",
     image: CC,
@@ -280,7 +298,7 @@ export const projects = [
     webapp: "",
   },
   {
-    id: 10,
+    id: 12,
     title: "Premium Car Dealership",
     description: "A multi-page frontend for a luxury car dealership.",
     image: PCD,
@@ -289,7 +307,7 @@ export const projects = [
     webapp: "",
   },
   {
-    id: 11,
+    id: 13,
     title: "MediScope",
     description: "A Django + React platform integrating disease prediction models and healthcare resources.",
     image: MS,
@@ -298,7 +316,7 @@ export const projects = [
     webapp: "",
   },
   {
-    id: 12,
+    id: 14,
     title: "Digital Financial Literacy Assistant",
     description: "An intelligent RAG-powered chatbot built with IBM Cloud to enhance financial literacy.",
     image: AI,
@@ -307,7 +325,7 @@ export const projects = [
     webapp: "",
   },
   {
-    id: 13,
+    id: 15,
     title: "ReWear",
     description: "ReWear is a web-based platform that enables users to exchange unused clothing.",
     image: Rewear,
@@ -316,7 +334,7 @@ export const projects = [
     webapp: "",
   },
   {
-    id: 14,
+    id: 16,
     title: "Expense Tracker",
     description: "A personal finance tracker built with MERN stack to log, categorize, and visualize expenses.",
     image: ET,
@@ -325,7 +343,7 @@ export const projects = [
     webapp: "",
   },
   {
-    id: 15,
+    id: 17,
     title: "Customer Segmentation",
     description: "A machine learning project that clusters customers based on spending and behavior.",
     image: CutomerSeg,
@@ -334,7 +352,7 @@ export const projects = [
     webapp: "",
   },
   {
-    id: 16,
+    id: 18,
     title: "Blockchain Tech",
     description: "A blockchain-based project demonstrating secure transactions and transparent record-keeping.",
     image: BC,
