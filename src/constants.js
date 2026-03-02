@@ -213,7 +213,7 @@ export const projects = [
     id: 2,
     title: "Felix N Sagar",
     description: "A professional service-based website developed for Felix N Sagar, a passport and visa consultancy firm. The platform provides detailed information about passport assistance, visa processing, and documentation support with a clean and user-friendly interface to simplify the application journey for clients.",
-    image: fns,
+    image: felix,
     tags: ["React JS", "HTML", "CSS", "JavaScript", "Responsive Design", "Service Website", "UI/UX Optimization", "Form Validation", "Production Deployment"],
     github: "",
     webapp: "https://passprt-visa.vercel.app/",
