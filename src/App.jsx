@@ -9,6 +9,7 @@ import Footer from "./Components/Footer/Footer.jsx";
 import Contact from "./Components/Contact/Contact.jsx";
 import BlurBlob from "./Components/BlurBlob.jsx";
 import CertificateSection from "./Components/Certificate/Certificate.jsx";
+import FloatingContact from "./Components/Contact/FloatingContact.jsx";
 
 import { RiGhost2Fill } from "react-icons/ri";
 
@@ -31,6 +32,7 @@ function App() {
         <Education />
         <Contact />
         <Footer />
+        <FloatingContact />
       </div>
     </div>
   );

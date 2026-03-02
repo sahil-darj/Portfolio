@@ -49,26 +49,16 @@ const Work = () => {
               <img
                 src={project.image}
                 alt={project.title}
-                className="w-full h-48 object-cover rounded-xl"
+                className="w-full aspect-video object-cover rounded-xl"
               />
             </div>
             <div className="p-6">
               <h3 className="text-2xl font-bold text-white mb-2">
                 {project.title}
               </h3>
-              <p className="text-gray-500 mb-4 pt-4 line-clamp-3">
+              <p className="text-gray-500 mb-2 pt-2 text-sm line-clamp-2">
                 {project.description}
               </p>
-              <div className="mb-4">
-                {project.tags.map((tag, index) => (
-                  <span
-                    key={index}
-                    className="inline-block bg-[#251f38] text-xs font-semibold text-purple-500 rounded-full px-2 py-1 mr-2 mb-2"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
             </div>
           </div>
         ))}

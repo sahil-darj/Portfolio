@@ -55,21 +55,9 @@ const CertificateSection = () => {
               <h3 className="text-xl font-bold text-white mb-2">
                 {certificate.title}
               </h3>
-              <p className="text-gray-500 mb-4 text-sm">
+              <p className="text-gray-500 mb-2 text-xs line-clamp-2">
                 {certificate.description}
               </p>
-              {certificate.tags && (
-                <div className="mb-2">
-                  {certificate.tags.map((tag, index) => (
-                    <span
-                      key={index}
-                      className="inline-block bg-[#251f38] text-xs font-semibold text-purple-500 rounded-full px-2 py-1 mr-2 mb-2"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              )}
             </div>
           </div>
         ))}
