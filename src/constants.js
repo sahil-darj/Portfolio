@@ -57,6 +57,8 @@ import ET from "./assets/work_logo/et.png";
 import ng from "./assets/work_logo/ng.png";
 import ns from "./assets/work_logo/ns.png";
 import alm from "./assets/work_logo/alm.png";
+import ps from "./assets/work_logo/ps.png";
+import felix from "./assets/work_logo/felix.png";
 
 //Certificate
 import vitinternship from "./assets/certificate/vit-internship.jpg";
