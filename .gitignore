@@ -29,18 +29,8 @@ build_log_2.txt
 Thumbs.db
 
 # ==========================================
-# BACKEND - Never push to public GitHub!
+# BACKEND - Never push (frontend only repo)
 # ==========================================
-backend/config.php
-backend/admin.php
-backend/uploads/
-backend/*.log
-
-# Keep these backend files (non-sensitive)
-!backend/api.php
-!backend/.htaccess
-!backend/README.md
-
-# SQL files with credentials
+backend/
 database.sql
 *.sql
