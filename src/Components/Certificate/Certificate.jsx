@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { certificates } from "../../constants";
+import { FiX } from "react-icons/fi";
 
 const CertificateSection = () => {
   const [selectedCertificate, setSelectedCertificate] = useState(null);
@@ -79,14 +80,12 @@ const CertificateSection = () => {
       {selectedCertificate && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-90 p-4">
           <div className="bg-gray-900 rounded-xl shadow-2xl w-[90%] max-w-4xl overflow-hidden relative">
-            <div className="flex justify-end p-4">
-              <button
-                onClick={handleCloseModal}
-                className="text-white text-3xl font-bold hover:text-purple-500"
-              >
-                &times;
-              </button>
-            </div>
+            <button
+              onClick={handleCloseModal}
+              className="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors z-[60]"
+            >
+              <FiX size={32} />
+            </button>
 
             <div className="flex flex-col items-center">
               <div className="w-full flex justify-center px-4">

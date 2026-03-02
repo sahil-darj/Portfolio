@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { projects } from "../../constants";
+import { FiX } from "react-icons/fi";
 
 const Work = () => {
   const [selectedProject, setSelectedProject] = useState(null);
@@ -45,11 +46,11 @@ const Work = () => {
             onClick={() => handleOpenModal(project)}
             className="border border-white bg-gray-900 backdrop-blur-md rounded-2xl shadow-2xl overflow-hidden cursor-pointer hover:shadow-purple-500/50 hover:-translate-y-2 transition-transform duration-300"
           >
-            <div className="p-4">
+            <div className="w-full">
               <img
                 src={project.image}
                 alt={project.title}
-                className="w-full aspect-video object-cover rounded-xl"
+                className="w-full aspect-video object-cover"
               />
             </div>
             <div className="p-6">
@@ -80,14 +81,12 @@ const Work = () => {
       {selectedProject && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-90 p-4">
           <div className="bg-gray-900 rounded-xl shadow-2xl lg:w-full w-[90%] max-w-3xl overflow-hidden relative">
-            <div className="flex justify-end p-4">
-              <button
-                onClick={handleCloseModal}
-                className="text-white text-3xl font-bold hover:text-purple-500"
-              >
-                &times;
-              </button>
-            </div>
+            <button
+              onClick={handleCloseModal}
+              className="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors z-[60]"
+            >
+              <FiX size={32} />
+            </button>
 
             <div className="flex flex-col">
               <div className="w-full flex justify-center bg-gray-900 px-4">

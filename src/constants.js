@@ -47,7 +47,7 @@ import ibm from "./assets/company_logo/ibm.png";
 
 // Education Section Logo's
 import lj from "./assets/education_logo/lj.jpg";
-import gtu from "./assets/education_logo/gtu.png";
+import gtu from "./assets/education_logo/gtu.jpg";
 import ms from "./assets/education_logo/ms-edu.jpg";
 //import glaLogo from "./assets/education_logo/gla_logo.png";
 //import bsaLogo from "./assets/education_logo/bsa_logo.png";
@@ -102,7 +102,7 @@ export const SkillsInfo = [
     skills: [
       { name: "HTML", logo: htmlLogo },
       { name: "CSS", logo: cssLogo },
-
+      { name: "Sass", logo: sassLogo },
       { name: "JavaScript", logo: javascriptLogo },
       { name: "React JS", logo: reactjsLogo },
       //{ name: "Angular", logo: angularLogo },
@@ -149,7 +149,7 @@ export const SkillsInfo = [
       { name: "Three JS", logo: threejs },
       { name: "Vercel", logo: vercelLogo },
       { name: "GSAP", logo: gsapLogo },
-
+      { name: "Netlify", logo: netlifyLogo },
       { name: "Machine Learning", logo: ml },
     ],
   },
@@ -276,7 +276,7 @@ export const education = [
     img: ms,
     school: "Maharshi Sandipani School ",
     date: "May 2021",
-    grade: "78%",
+    grade: "83%",
     desc: "I completed my class 10 education from Maharshi Sandipani School, under the  GSHEB board, where I studied Science with Computer.",
     degree: "GSHEB(X)",
   },

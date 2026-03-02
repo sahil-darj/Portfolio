@@ -26,56 +26,57 @@ const Education = () => {
         {education.map((edu, index) => (
           <div
             key={edu.id}
-            className={`flex flex-col sm:flex-row items-center mb-16 ${index % 2 === 0 ? "sm:justify-end" : "sm:justify-start"
+            className={`flex flex-col sm:flex-row items-center mb-16 w-full ${index % 2 === 0 ? "sm:flex-row-reverse" : ""
               }`}
           >
             {/* Timeline Circle */}
-            <div className="absolute sm:left-1/2 left-0 transform -translate-x-1/2 bg-gray-400 border-4 border-[#8245ec] w-12 h-12 sm:w-16 sm:h-16 rounded-full flex justify-center items-center z-10">
+            <div className="absolute sm:left-1/2 left-0 transform -translate-x-1/2 bg-gray-900 border-4 border-purple-500 w-12 h-12 sm:w-14 sm:h-14 rounded-full flex justify-center items-center z-20 shadow-[0_0_15px_rgba(130,69,236,0.5)]">
               <img
                 src={edu.img}
                 alt={edu.school}
-                className="w-full h-full object-cover rounded-full"
+                className="w-full h-full object-cover rounded-full p-1"
               />
             </div>
 
-            {/* Content Section */}
-            <div
-              className={`w-full sm:max-w-md p-4 sm:p-8 rounded-2xl border border-white bg-gray-900 backdrop-blur-md shadow-[0_0_20px_1px_rgba(130,69,236,0.3)] ${index % 2 === 0 ? "sm:ml-0" : "sm:mr-0"
-                } sm:ml-44 sm:mr-44 ml-8 transform transition-transform duration-300 hover:scale-105`}
-            >
-              {/* Flex container for image and text */}
-              <div className="flex items-center space-x-6">
-                {/* School Logo/Image */}
-                <div className="w-16 h-16 bg-white rounded-md overflow-hidden flex-shrink-0">
-                  <img
-                    src={edu.img}
-                    alt={edu.school}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
+            {/* Side Container (Half Width) */}
+            <div className={`w-full sm:w-1/2 flex ${index % 2 === 0 ? "sm:justify-start sm:pl-5" : "sm:justify-end sm:pr-5"}`}>
+              {/* Content Section */}
+              <div
+                className="w-full sm:max-w-md p-4 sm:p-6 rounded-2xl border border-purple-500/30 bg-[#0d0b21]/80 backdrop-blur-md shadow-[0_0_20px_1px_rgba(130,69,236,0.2)] transform transition-transform duration-300 hover:scale-[1.02] ml-8 sm:ml-0"
+              >
+                {/* Flex container for image and text */}
+                <div className="flex items-center space-x-4">
+                  {/* School Logo/Image */}
+                  <div className="w-14 h-14 rounded-xl overflow-hidden flex-shrink-0 shadow-lg">
+                    <img
+                      src={edu.img}
+                      alt={edu.school}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
 
-                {/* Degree, School Name, and Date */}
-                <div className="flex flex-col justify-between">
-                  <div>
-                    <h3 className="text-xl font-bold text-white leading-tight">
+                  {/* Degree, School Name, and Date */}
+                  <div className="flex flex-col justify-center">
+                    <h3 className="text-lg sm:text-xl font-bold text-white leading-tight">
                       {edu.degree}
                     </h3>
-                    <h4 className="text-md text-gray-300">
+                    <h4 className="text-sm text-purple-400 font-medium">
                       {edu.school}
                     </h4>
+                    <p className="text-xs text-gray-500 mt-1 uppercase tracking-wider">{edu.date}</p>
                   </div>
-                  {/* Date at the bottom */}
-                  <p className="text-sm text-gray-500 mt-2">{edu.date}</p>
                 </div>
-              </div>
 
-              <div className="mt-4 flex items-center justify-between">
-                <span className="text-purple-400 font-bold bg-purple-900/30 px-3 py-1 rounded-full text-sm">
-                  Grade: {edu.grade}
-                </span>
+                <div className="mt-4 flex items-center justify-between">
+                  <span className="text-purple-400 font-bold bg-purple-900/30 px-3 py-1 rounded-full text-[10px] sm:text-xs">
+                    Grade: {edu.grade}
+                  </span>
+                </div>
+                <p className="mt-4 text-gray-400 text-sm leading-relaxed">{edu.desc}</p>
               </div>
-              <p className="mt-4 text-gray-400 text-sm leading-relaxed">{edu.desc}</p>
             </div>
+            {/* Empty Spacer */}
+            <div className="hidden sm:block sm:w-1/2"></div>
           </div>
         ))}
       </div>

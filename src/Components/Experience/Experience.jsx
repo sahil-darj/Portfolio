@@ -26,66 +26,66 @@ const Experience = () => {
         {experiences.map((experience, index) => (
           <div
             key={experience.id}
-            className={`flex flex-col sm:flex-row items-center mb-16 ${index % 2 === 0 ? "sm:justify-end" : "sm:justify-start"
+            className={`flex flex-col sm:flex-row items-center mb-16 w-full ${index % 2 === 0 ? "sm:flex-row-reverse" : ""
               }`}
           >
             {/* Timeline Circle */}
-            <div className="absolute sm:left-1/2 left-0 transform -translate-x-1/2 bg-gray-400 border-4 border-[#8245ec] w-12 h-12 sm:w-16 sm:h-16 rounded-full flex justify-center items-center z-10">
+            <div className="absolute sm:left-1/2 left-0 transform -translate-x-1/2 bg-gray-900 border-4 border-purple-500 w-12 h-12 sm:w-14 sm:h-14 rounded-full flex justify-center items-center z-20 shadow-[0_0_15px_rgba(130,69,236,0.5)]">
               <img
                 src={experience.img}
                 alt={experience.company}
-                className="w-full h-full object-cover rounded-full"
+                className="w-full h-full object-cover rounded-full p-1"
               />
             </div>
 
-            {/* Content Section */}
-            <div
-              className={`w-full sm:max-w-md p-4 sm:p-8 rounded-2xl border border-white bg-gray-900 backdrop-blur-md shadow-[0_0_20px_1px_rgba(130,69,236,0.3)] ${index % 2 === 0 ? "sm:ml-0" : "sm:mr-0"
-                } sm:ml-44 sm:mr-44 ml-8 transform transition-transform duration-300 hover:scale-105`}
-            >
-              {/* Flex container for image and text */}
-              <div className="flex items-center space-x-6">
-                {/* Company Logo/Image */}
-                <div className="w-16 h-16 bg-white rounded-md overflow-hidden flex-shrink-0">
-                  <img
-                    src={experience.img}
-                    alt={experience.company}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
+            {/* Side Container (Half Width) */}
+            <div className={`w-full sm:w-1/2 flex ${index % 2 === 0 ? "sm:justify-start sm:pl-5" : "sm:justify-end sm:pr-5"}`}>
+              {/* Content Section */}
+              <div
+                className="w-full sm:max-w-md p-4 sm:p-6 rounded-2xl border border-purple-500/30 bg-[#0d0b21]/80 backdrop-blur-md shadow-[0_0_20px_1px_rgba(130,69,236,0.2)] transform transition-transform duration-300 hover:scale-[1.02] ml-8 sm:ml-0"
+              >
+                {/* Flex container for image and text */}
+                <div className="flex items-center space-x-4">
+                  {/* Company Logo/Image */}
+                  <div className="w-14 h-14 rounded-xl overflow-hidden flex-shrink-0 shadow-lg">
+                    <img
+                      src={experience.img}
+                      alt={experience.company}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
 
-                {/* Role, Company Name, and Date */}
-                <div className="flex flex-col justify-between">
-                  <div>
-                    <h3 className="text-xl sm:text-2xl font-semibold text-white">
+                  {/* Role, Company Name, and Date */}
+                  <div className="flex flex-col justify-center">
+                    <h3 className="text-lg sm:text-xl font-bold text-white leading-tight">
                       {experience.role}
                     </h3>
-                    <h4 className="text-md sm:text-sm text-gray-300">
+                    <h4 className="text-sm text-purple-400 font-medium">
                       {experience.company}
                     </h4>
+                    <p className="text-xs text-gray-500 mt-1 uppercase tracking-wider">
+                      {experience.date}
+                    </p>
                   </div>
-                  {/* Date at the bottom */}
-                  <p className="text-sm text-gray-500 mt-2">
-                    {experience.date}
-                  </p>
+                </div>
+
+                <p className="mt-4 text-gray-400 text-sm leading-relaxed">{experience.desc}</p>
+                <div className="mt-4 pt-4 border-t border-white/5">
+                  <div className="flex flex-wrap gap-2">
+                    {experience.skills.map((skill, index) => (
+                      <span
+                        key={index}
+                        className="bg-purple-900/30 text-purple-300 px-3 py-1 text-[10px] sm:text-xs rounded-full border border-purple-500/20"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
-
-              <p className="mt-4 text-gray-400">{experience.desc}</p>
-              <div className="mt-4">
-                <h5 className="font-medium text-white">Skills:</h5>
-                <ul className="flex flex-wrap mt-2">
-                  {experience.skills.map((skill, index) => (
-                    <li
-                      key={index}
-                      className="bg-[#8245ec] text-gray-300 px-4 py-1 text-xs sm:text-sm rounded-lg mr-2 mb-2 border border-gray-400"
-                    >
-                      {skill}
-                    </li>
-                  ))}
-                </ul>
-              </div>
             </div>
+            {/* Empty Spacer */}
+            <div className="hidden sm:block sm:w-1/2"></div>
           </div>
         ))}
       </div>
