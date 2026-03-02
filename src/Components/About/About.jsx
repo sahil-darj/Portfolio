@@ -54,10 +54,16 @@ const About = () => {
             href="https://drive.google.com/file/d/1KQHF_vq6eJqU48qCt1S39q6YJaTRHLk-/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block text-white py-3 px-8 rounded-full mt-5 text-lg font-bold transition duration-300 transform hover:scale-105"
+            className="inline-block text-white py-3 px-8 rounded-full mt-5 text-lg font-bold transition-all duration-300 transform hover:scale-105 active:scale-95"
             style={{
               background: "linear-gradient(90deg, #8245ec, #a855f7)",
-              boxShadow: "0 0 2px #8245ec, 0 0 2px #8245ec, 0 0 40px #8245ec",
+              boxShadow: "0 0 10px #8245ec, 0 0 20px #8245ec",
+            }}
+            onMouseOver={(e) => {
+              e.currentTarget.style.boxShadow = "0 0 20px #8245ec, 0 0 40px #a855f7";
+            }}
+            onMouseOut={(e) => {
+              e.currentTarget.style.boxShadow = "0 0 10px #8245ec, 0 0 20px #8245ec";
             }}
           >
             DOWNLOAD CV
