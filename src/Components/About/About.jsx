@@ -9,8 +9,8 @@ const About = () => {
       id="about"
       className="py-4 px-[7vw] md:px-[7vw] lg:px-[20vw] font-sans mt-16 md:mt-24 lg:mt-32"
     >
-      <div className="flex flex-col-reverse md:flex-row justify-between items-center">
-        {/* Left Side */}
+      <div className="flex flex-col-reverse md:flex-row justify-between items-center gap-10 md:gap-20">
+
         <div className="md:w-1/2 text-center md:text-left mt-8 md:mt-0">
           {/* Greeting */}
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-2 leading-tight">
@@ -21,7 +21,8 @@ const About = () => {
             Sahil Darji
           </h2>
           {/* Skills Heading with Typing Effect */}
-          <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold mb-4 text-[#8245ec] leading-tight">
+          <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold mb-4 text-[#8245ec] leading-tight min-h-[70px] md:min-h-[90px]">
+
             <span className="text-white">I am a </span>
             <TypeAnimation
               sequence={[
@@ -36,10 +37,12 @@ const About = () => {
               ]}
               wrapper="span"
               speed={50}
+              className="whitespace-nowrap"
               style={{ display: "inline-block" }}
               repeat={Infinity}
               cursor={true}
             />
+
           </h3>
           {/* About Me Paragraph */}
           <p className="text-base sm:text-lg md:text-lg text-gray-400 mb-10 mt-8 leading-relaxed">
@@ -70,21 +73,30 @@ const About = () => {
           </a>
         </div>
         {/* Right Side */}
-        <div className="md:w-1/2 flex justify-center md:justify-end">
+        <div className="md:w-1/2 flex justify-center md:justify-end relative group" >
+          {/* Animated Glow Background behind the image */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 sm:w-64 sm:h-64 md:w-[28rem] md:h-[28rem] bg-[#8245ec]/20 rounded-full blur-[80px] group-hover:bg-[#8245ec]/30 transition-all duration-500"></div>
+
           <Tilt
-            className="w-48 h-48 sm:w-64 sm:h-64 md:w-[30rem] md:h-[30rem] border-4 border-purple-700 rounded-full"
-            tiltMaxAngleX={20}
-            tiltMaxAngleY={20}
+            className="z-10"
+            tiltMaxAngleX={15}
+            tiltMaxAngleY={15}
             perspective={1000}
-            scale={1.05}
-            transitionSpeed={1000}
+            scale={1.04}
+            transitionSpeed={1500}
             gyroscope={true}
           >
-            <img
-              src={profileImage}
-              alt="Sahil Darji"
-              className="w-full h-full rounded-full object-cover drop-shadow-[0_10px_20px_rgba(130,69,236,0.5)]"
-            />
+            <div className="relative p-1 rounded-full bg-gradient-to-r from-[#8245ec] via-[#a855f7] to-[#8245ec] shadow-[0_0_30px_rgba(130,69,236,0.3)] transition-all duration-500">
+              <div className="w-48 h-48 sm:w-64 sm:h-64 md:w-[28rem] md:h-[28rem] rounded-full overflow-hidden border-4 border-[#0d0b21]">
+                <img
+                  src={profileImage}
+                  alt="Sahil Darji"
+                  className="w-full h-full rounded-full object-cover object-[50%_15%] transition-transform duration-700 hover:scale-110"
+                />
+
+              </div>
+            </div>
+
           </Tilt>
         </div>
       </div>

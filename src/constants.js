@@ -300,7 +300,7 @@ export const projects = [
       "Database Integration",
       "Production Deployment",
     ],
-    github: "https://github.com/sahil-darj/Naroda_group",
+    github: "",
     webapp: "https://narodagroup.com/",
   },
   {
