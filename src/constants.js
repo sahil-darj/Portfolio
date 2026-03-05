@@ -334,7 +334,7 @@ export const projects = [
     image: Rewear,
     tags: ["TypeScript", "React JS", "Node.js", "Express", "HTML", "CSS"],
     github: "https://github.com/sahil-darj/Rewear",
-    webapp: "",
+    webapp: "https://rewearoddo.netlify.app/",
   },
   {
     id: 16,
