@@ -298,7 +298,7 @@ export const projects = [
     image: CC,
     tags: ["React JS", "Tailwind", "HTML", "CSS", "MongoDB", "MongoDB Atlas", "Express", "Nodejs"],
     github: "https://github.com/sahil-darj/Campus-Connect",
-    webapp: "",
+    webapp: "https://campusconnectbystackverse.netlify.app/",
   },
   {
     id: 12,
