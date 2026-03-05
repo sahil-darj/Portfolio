@@ -45,7 +45,7 @@ import VIE from "./assets/work_logo/vie.png";
 import Di from "./assets/project/dinesh.png";
 import Machine from "./assets/project/machine.png";
 import AI from "./assets/work_logo/ai-agent.png";
-import CC from "./assets/work_logo/cc.png";
+import CC from "./assets/work_logo/CC.png";
 import Rewear from "./assets/work_logo/rewear.png";
 import RE from "./assets/work_logo/renteeasy.png";
 import CutomerSeg from "./assets/work_logo/cs.jpg";
